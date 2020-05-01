@@ -1,0 +1,75 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/ui_theme.tres" type="Theme" id=1]
+[ext_resource path="res://src/UserInterface/Title.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/UserInterface/QuitButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/UserInterface/ChangeSceneButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/UserInterface/RetryButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/UserInterface/UserInterface.gd" type="Script" id=6]
+
+[node name="UserInterface" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 1720.0
+margin_top = 40.0
+margin_right = 1880.0
+margin_bottom = 71.0
+text = "Score: %s"
+align = 2
+
+[node name="PauseOverlay" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.262745 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" parent="PauseOverlay" instance=ExtResource( 2 )]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -360.0
+margin_top = -300.0
+margin_right = 371.0
+margin_bottom = -243.0
+text = "Paused"
+
+[node name="Menu" type="VBoxContainer" parent="PauseOverlay"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -160.0
+margin_top = -140.0
+margin_right = 160.0
+margin_bottom = 140.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitButton" parent="PauseOverlay/Menu" instance=ExtResource( 3 )]
+margin_top = 0.0
+margin_right = 320.0
+margin_bottom = 88.0
+
+[node name="ChangeSceneButton" parent="PauseOverlay/Menu" instance=ExtResource( 4 )]
+margin_top = 96.0
+margin_right = 320.0
+margin_bottom = 184.0
+text = "To Title Screen"
+next_scene_path = "res://Screens/MainScreen.tscn"
+
+[node name="RetryButton" parent="PauseOverlay/Menu" instance=ExtResource( 5 )]
+margin_top = 192.0
+margin_right = 320.0
+margin_bottom = 280.0
+text = "Retry"

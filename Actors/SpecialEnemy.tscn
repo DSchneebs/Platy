@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/goldenemy.png" type="Texture" id=1]
+[ext_resource path="res://Actors/Enemy.tscn" type="PackedScene" id=2]
+
+[node name="SpecialEnemy" instance=ExtResource( 2 )]
+
+[node name="enemy" parent="." index="0"]
+texture = ExtResource( 1 )
